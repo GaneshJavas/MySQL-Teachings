@@ -1,0 +1,26 @@
+To Create Table // "Customers" is a table name that we dropped
+> CREATE TABLE Customers(
+	firstName VARCHAR(20),
+    lastName VARCHAR(20),
+    birthDate DATE,
+    moneySpent FLOAT(8,2),
+    anniversary DATE
+);
+
+To Display the Schema
+> DESC Customers;
+   
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| firstName   | varchar(20) | YES  |     | NULL    |       |
+| lastName    | varchar(20) | YES  |     | NULL    |       |
+| birthDate   | date        | YES  |     | NULL    |       |
+| moneySpent  | float(8,2)  | YES  |     | NULL    |       |
+| anniversary | date        | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+5 rows in set (0.04 sec)
+
+To Delete the TABLE
+> DROP TABLE Customers;                 // "Customers" is a table name that we dropped
+Query OK, 0 rows affected (0.55 sec)

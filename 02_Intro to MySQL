@@ -1,0 +1,42 @@
+MySQL
+
+Connection
+> mysql -u root -p password
+
+List out the Databases
+> SHOW DATABASES;
+
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.02 sec)
+
+
+To Create new Database
+> CREATE DATABASE intro;     // "intro" is the name of the new database i want to create
+
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| intro              |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+To Use a specific Database
+> USE intro;                // "intro" is the name of the database i want to use
+
+Database changed
+
+To delete DATABASE
+> DROP DATABASE intro;      // "intro" is the name of the database i want to delete or drop
+Query OK, 0 rows affected (0.10 sec)
+

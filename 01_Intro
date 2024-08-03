@@ -1,0 +1,30 @@
+What is Database ? 
+
+-- Collection of Data
+-- Organized 
+
+Database Types: Relational Database and Non- Relational Database
+
+    Relational Database 
+
+        -- Data's are in the form of ROWS & COLUMNS
+
+        SQL : Structured Query Language
+      RDBMS : Relational Database Management System
+    Example : MySQL
+            PostgreSQL
+            MariaDB
+            Microsoft SQL Server
+            Oracle Database
+
+    Non- Relational Database
+
+        -- A document data store manages a set of named string fields and object data values in an entity referred to as a “document” typically stored in the form of JSON documents, which can be encoded in a variety of ways, including XML, YAML, JSON, BSON or as plain text. The fields within documents are exposed, allowing an application to query and filter data using field values.
+
+    Example: MongoDB
+             Apache Cassandra
+             Redis
+             Couchbase
+             Apache HBase
+
+
