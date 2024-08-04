@@ -1,0 +1,28 @@
+ALTER 
+    -- ADD > To add new column to the table
+    -- DROP > To remove column from the table
+    -- Modify > To update the column
+
+Add new Column to the table "Customers"
+> ALTER TABLE Customers ADD Cust_Id INT NOT NULL;
+
+Delete Column from table "Customers"
+>
+
+Update Column
+> ALTER TABLE Customers MODIFY firstName VARCHAR(20) NOT NULL;
+Query OK, 0 rows affected (1.70 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+>desc Customers;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| firstName   | varchar(20) | NO   |     | NULL    |       |
+| lastName    | varchar(20) | YES  |     | NULL    |       |
+| birthDate   | date        | YES  |     | NULL    |       |
+| moneySpent  | float(8,2)  | YES  |     | NULL    |       |
+| anniversary | date        | YES  |     | NULL    |       |
+| Cust_Id     | int         | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)

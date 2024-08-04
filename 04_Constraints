@@ -1,0 +1,36 @@
+CREATE TABLE Customers(
+    Cust_ID INT AUTO_INCREMENT,
+	firstName VARCHAR(20) NOT NULL,
+    lastName VARCHAR(20) NOT NULL,
+    birthDate DATE NOT NULL,
+    moneySpent FLOAT(8,2) NOT NULL,
+    anniversary DATE NOT NULL,
+    PRIMARY KEY(Cust_ID)
+);
+
+> desc Customers;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| Cust_ID     | int         | NO   | PRI | NULL    | auto_increment |
+| firstName   | varchar(20) | NO   |     | NULL    |                |
+| lastName    | varchar(20) | NO   |     | NULL    |                |
+| birthDate   | date        | NO   |     | NULL    |                |
+| moneySpent  | float(8,2)  | NO   |     | NULL    |                |
+| anniversary | date        | NO   |     | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)
+
+Contraints : NOT NULL, PRIMARY KEY, etc.
+
+If we want to make a Combination of Two or more Columns a PRIMARY KEY
+
+CREATE TABLE Customers(
+    Cust_ID INT NOT NULL,
+	firstName VARCHAR(20) NOT NULL,
+    lastName VARCHAR(20) NOT NULL,
+    birthDate DATE NOT NULL,
+    moneySpent FLOAT(8,2) NOT NULL,
+    anniversary DATE NOT NULL,
+    CONSTRAINT myNewPK PRIMARY KEY(Cust_ID,firstName)
+);

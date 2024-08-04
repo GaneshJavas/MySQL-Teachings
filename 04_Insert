@@ -1,0 +1,40 @@
+INSERT data into our Table
+> INSERT INTO Customers VALUES("Amit","Singh",'2006-04-27',10000.56,'2007-04-27');
+
+To display data from Table
+> SELECT * from Customers; // Table Name: "Customers" 
+
++-----------+----------+------------+------------+-------------+
+| firstName | lastName | birthDate  | moneySpent | anniversary |     
++-----------+----------+------------+------------+-------------+     
+| Amit      | Singh    | 2006-04-27 |   10000.56 | 2007-04-27  |     
++-----------+----------+------------+------------+-------------+     
+1 rows in set (0.00 sec)
+
+Delete duplicate records
+As in this example we will delete Vipin
+> SELECT * from customers;
+
++-----------+----------+------------+------------+-------------+
+| firstName | lastName | birthDate  | moneySpent | anniversary |
++-----------+----------+------------+------------+-------------+
+| Amit      | Singh    | 2006-04-27 |   10000.56 | 2007-04-27  |
+| Gulshan   | Kumar    | 2004-04-17 |   10000.56 | 2005-04-17  |
+| Vipin     | Sen      | 2005-07-27 |   10000.56 | 2006-07-27  |
+| Vipin     | Sen      | 2005-07-27 |   10000.56 | 2006-07-27  |
+| Vipin     | Sen      | 2005-07-27 |   10000.56 | 2006-07-27  |
+| Satyam    | Sen      | 2003-08-03 |   10000.56 | 2004-08-03  |
++-----------+----------+------------+------------+-------------+
+6 rows in set (0.00 sec)
+
+DELETE rows from table
+> DELETE FROM Customers where firstName="Vipin";
+Query OK, 3 rows affected (0.11 sec)
+
+This will create an issue:
+    Any record containing firstName as Vipin will be deleted.
+
+To avoid these kind problems use a PRIMARY KEY : Unique 
+
+To Update the Table schema we will use ALTER.
+Refer to ALTER Chapter.
