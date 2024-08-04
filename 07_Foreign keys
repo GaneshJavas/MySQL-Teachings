@@ -1,0 +1,14 @@
+Table Name --- PRIMARY KEY
+Customers  --- Cust_ID
+Products   --- Pro_ID
+Employees  --- Emp_ID
+Orders     --- Ord_ID
+    Orders Table as Columns Cust_ID, Pro_ID, Emp_ID which is the reference from Customers, Products, Employees Tables Primary key 
+
+Foreign Key : Is a Primary key in its respective Parent Tables but To interconnect with its Child tables these Primary key will be Foreign Key.
+
+    Examples: Cust_ID, Pro_ID, Emp_ID are Foreign keys inside Orders.
+
+> ALTER TABLE ADD FOREIGN KEY (Pro_ID) REFERENCES Products  
+
+> ALTER TABLE ADD CONSTRAINT Pro_ID FOREIGN KEY (Pro_ID) REFERENCES Products(Pro_ID)
