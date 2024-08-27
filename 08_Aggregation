@@ -1,0 +1,41 @@
+AGGREGATED Functions
+    -- COUNT() > this will count no. of entries of an attribute inside a table,db,etc.
+    -- AVG() > to find the average of the entries of an attribute
+    -- SUM() > to find the sum of the entries of an attribute
+    -- MIN() > to find the minimum of the entries of an attribute
+    -- MAX() > to find the maximum of the entries of an attribute
+
+
+mysql> select CourseName,min(CourseDuration) from Courses Group by CourseName,CourseDuration;
++-------------+---------------------+
+| CourseName  | min(CourseDuration) |
++-------------+---------------------+
+| Python      |                   3 |
+| MySQL       |                   2 |
+| Java Script |                  12 |
+| Java        |                   5 |
+| C++         |                  10 |
+| Python      |                   2 |
++-------------+---------------------+
+6 rows in set (0.00 sec)
+
+
+In the above case grouping was done (CourseName & CourseDuration) 
+
+mysql> select CourseName,min(CourseDuration) from Courses Group by CourseName;
++-------------+---------------------+
+| CourseName  | min(CourseDuration) |
++-------------+---------------------+
+| Python      |                   2 |
+| MySQL       |                   2 |
+| Java Script |                  12 |
+| Java        |                   5 |
+| C++         |                  10 |
++-------------+---------------------+
+5 rows in set (0.00 sec)
+
+
+select max(selected_course) as Courses,count(selected_course) 
+    from Students 
+    group by selected_course
+    ;
