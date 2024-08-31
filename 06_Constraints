@@ -1,3 +1,6 @@
+Primary Key >> Must be NOT NULL and Unique
+Unique Key >> Must be Unique but its ok to be null
+
 CREATE TABLE Customers(
     Cust_ID INT AUTO_INCREMENT,
 	firstName VARCHAR(20) NOT NULL,

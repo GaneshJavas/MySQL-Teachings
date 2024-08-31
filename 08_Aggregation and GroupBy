@@ -39,3 +39,27 @@ select max(selected_course) as Courses,count(selected_course)
     from Students 
     group by selected_course
     ;
+
+QUESTIONS
+
+1. Employee name who is having the highest salary.(With and without "ORDER BY").
+
+2. Employee name who is having the highest salary and age is getter than 30.
+
+3. Total number of students enrolled in our company.
+
+4. Number of students enrolled in course_id 4.
+
+5. Number of students enrolled in each course.
+
+6. Update Manoj data with year of experience as 2 and company as Oriental and Location as Jaipur
+    Update Vivek data with company as L N C T
+    Update Rishi data with company as Sage
+
+7. Number of students enrolled in each course grouped together with Location.
+
+8. Corresponds to individual source of joining, give the maximum years of experience any person.
+
+9. Corresponds to individual source of joining, give the average years of experience any person.
+
+10. Display the records of those students who as joined from more than 1 source.

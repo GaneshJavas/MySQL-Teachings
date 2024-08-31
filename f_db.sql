@@ -44,7 +44,9 @@ Years_Of_Exp INT NOT NULL,
 S_Company varchar(50) NOT NULL,
 Batch_Start_Date timestamp NOT NULL,
 Location varchar(50) NOT NULL,
-PRIMARY KEY(StudentID)
+PRIMARY KEY(StudentID),
+UNIQUE KEY(S_Email),
+FOREIGN KEY(Selected_Course) REFERENCES Courses(CourseID)
 );
 
 INSERT INTO Students(S_FirstName, S_LastName, S_Email, S_Phone, S_EnrollmentDate, Selected_Course, Years_Of_Exp, S_Company, Batch_Start_Date, Location) VALUES ("Amit", "Singh", "amitsingh@gmail.com", 9898412653, "2024-06-02", 1, 2, "Oriental", "2024-06-05", "Bhopal");
@@ -53,4 +55,17 @@ INSERT INTO Students(S_FirstName, S_LastName, S_Email, S_Phone, S_EnrollmentDate
 
 INSERT INTO Students(S_FirstName, S_LastName, S_Email, S_Phone, S_EnrollmentDate, Selected_Course, Years_Of_Exp, S_Company, Batch_Start_Date, Location) VALUES ("Gulshan", "Kumar", "gulshankr@gmail.com", 9898214653, "2024-06-02", 1, 3, "Sage International", "2024-06-05", "Bhopal");
 
+INSERT INTO Students(S_FirstName, S_LastName, S_Email, S_Phone, S_EnrollmentDate, Selected_Course, Years_Of_Exp, S_Company, Batch_Start_Date, Location) VALUES ("Manoj", "Kumar", "manojkr@gmail.com", 9898111653, "2024-06-06", 4, 3, "ZTMD", "2024-06-10", "Bhopal");
+
+INSERT INTO Students(S_FirstName, S_LastName, S_Email, S_Phone, S_EnrollmentDate, Selected_Course, Years_Of_Exp, S_Company, Batch_Start_Date, Location) VALUES ("Vivek", "Patel", "vpatel@gmail.com", 9999111653, "2024-06-06", 2, 3, "BSSS", "2024-06-15", "Somewhere in MP");
+
+INSERT INTO Students(S_FirstName, S_LastName, S_Email, S_Phone, S_EnrollmentDate, Selected_Course, Years_Of_Exp, S_Company, Batch_Start_Date, Location) VALUES ("Rishi", "Kapoor", "rishik@gmail.com", 9998111333, "2024-06-07", 2, 2, "JU", "2024-06-15", "Kolkata");
+
 alter table Students add constraint Selected_Course Foreign Key(Selected_Course) references Courses(CourseID);
+alter table Students add constraint Unique Key(S_Email);
+
+
+
+
+
+
