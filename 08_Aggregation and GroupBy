@@ -5,6 +5,7 @@ AGGREGATED Functions
     -- MIN() > to find the minimum of the entries of an attribute
     -- MAX() > to find the maximum of the entries of an attribute
 
+Note: Selected list of columns that we want to display must be in Group By columns and non-aggregated columns must be functionally dependent on columns in Goup By clause.
 
 mysql> select CourseName,min(CourseDuration) from Courses Group by CourseName,CourseDuration;
 +-------------+---------------------+
@@ -43,23 +44,36 @@ select max(selected_course) as Courses,count(selected_course)
 QUESTIONS
 
 1. Employee name who is having the highest salary.(With and without "ORDER BY").
+    >> Select FirstName from employee Order By salary desc Limit 1;
+    >> Select FirstName from employee where salary = (Select Max(Salary) from employee);
 
-2. Employee name who is having the highest salary and age is getter than 30.
+2. Employee name who is having the highest salary and age is greater than 30.
+    >> Select FirstName,age,salary from employee where age > 30 and  order by salary desc Limit 1;
 
 3. Total number of students enrolled in our company.
+    >> Select Count(*) from Students;
 
 4. Number of students enrolled in course_id 4.
+    >> Select Count(*) from Students where CourseID = 4;
 
 5. Number of students enrolled in each course.
-
+    >> Select Selected_Course,Count(*) from Students Group By Selected_Course;
+    
 6. Update Manoj data with year of experience as 2 and company as Oriental and Location as Jaipur
-    Update Vivek data with company as L N C T
-    Update Rishi data with company as Sage
+    >> UPDATE Students SET Years_Of_Exp = 2,S_Company = "Oriental",Location = "Jaipur" where S_FirstName = "Manoj";
+   Update Vivek data with company as L N C T
+    >> UPDATE Students SET S_Company = "Oriental" where S_FirstName = "Vivek";
+   Update Rishi data with company as Sage
+    >> UPDATE Students SET S_Company = "Sage" where S_FirstName = "Rishi";
 
 7. Number of students enrolled in each course grouped together with Location.
+    >> Select Selected_Course,Location,count(*) from Students Group By Selected_Course,Location;
 
 8. Corresponds to individual source of joining, give the maximum years of experience any person.
+    >> Select S_Company,MAX(Years_Of_Exp) from Students Group By S_Company;
 
 9. Corresponds to individual source of joining, give the average years of experience any person.
+    >> Select S_Company,AVG(Years_Of_Exp) from Students Group By S_Company;
 
 10. Display the records of those students who as joined from more than 1 source.
+    >> Select S_FirstName, Count(S_Company) from Students Group By S_FirstName having count(S_Company);

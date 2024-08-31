@@ -26,3 +26,7 @@ Records: 0  Duplicates: 0  Warnings: 0
 | Cust_Id     | int         | YES  |     | NULL    |       |
 +-------------+-------------+------+-----+---------+-------+
 6 rows in set (0.00 sec)
+
+
+Update record of a certain table
+> UPDATE Students SET Years_Of_Exp = 2,S_Company = "Oriental",Location = "Jaipur" where S_FirstName = "Manoj";
