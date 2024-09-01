@@ -1,0 +1,74 @@
+ROW_NUMBER() >>  
+RANK() >>
+DENSE_RANK() >>
+
+Employee Table
++-------+-----------+----------+-----+--------+-----------+
+| EmpID | FirstName | LastName | Age | Salary | Location  |
++-------+-----------+----------+-----+--------+-----------+
+|     1 | Priya     | Bhatia   |  26 | 100000 | Bengaluru |
+|     2 | Sumedha   | Midha    |  32 |  50000 | Gurugram  |
+|     3 | Rashmi    | Tanwar   |  30 |  20000 | Bengaluru |
+|     4 | Shivam    | Mishra   |  28 |  10000 | Noida     |
+|     5 | Ajay      | Bhatia   |  25 |   5000 | Mumbai    |
+|     6 | Ankit     | Sangwan  |  34 |  70000 | Bengaluru |
+|     7 | Alia      | Bhatt    |  29 |  50000 | Gurugram  |
++-------+-----------+----------+-----+--------+-----------+
+
+ 1. Corresponding to each location, what is the count of each employee and average salary.
+    >> select count(*),location,avg(salary) from employee group by location;
+
++----------+-----------+-------------+
+| count(*) | location  | avg(salary) |
++----------+-----------+-------------+
+|        3 | Bengaluru |  63333.3333 |
+|        2 | Gurugram  |  50000.0000 |
+|        1 | Noida     |  10000.0000 |
+|        1 | Mumbai    |   5000.0000 |
++----------+-----------+-------------+
+
+ 2. Corresponding to each location, what is the count of each employee and average salary and display the First name as well.
+    >> select FirstName,count(*),location,avg(salary) from employee group by location;
+
+    select *,ROW_NUMBER() over(Order by salary desc) as Priority from employee;
+
+    mysql> select location,FirstName,salary,Row_number() over(partition by location order by Salary desc) as Priority from employee;
++-----------+-----------+--------+----------+
+| location  | FirstName | salary | Priority |
++-----------+-----------+--------+----------+
+| Bengaluru | Priya     | 100000 |        1 |
+| Bengaluru | Ankit     |  70000 |        2 |
+| Bengaluru | Rashmi    |  20000 |        3 |
+| Gurugram  | Sumedha   |  50000 |        1 |
+| Gurugram  | Alia      |  50000 |        2 |
+| Mumbai    | Ajay      |   5000 |        1 |
+| Noida     | Shivam    |  10000 |        1 |
++-----------+-----------+--------+----------+
+7 rows in set (0.00 sec)
+
+    (select location,count(*) from employee group by location) as tmp;
+
+    mysql> select location,count(*) from employee group by location;
++-----------+----------+
+| location  | count(*) |
++-----------+----------+
+| Bengaluru |        3 |
+| Gurugram  |        2 |
+| Noida     |        1 |
+| Mumbai    |        1 |
++-----------+----------+
+4 rows in set (0.00 sec)
+
+    >> select employee.location,FirstName,salary,tmp.ccc,Row_number() over(partition by employee.location order by Salary desc) as Priority from employee inner join (select location,count(*) as ccc from employee group by location) as tmp on tmp.location = employee.location;
+
++-----------+-----------+--------+-----+----------+
+| location  | FirstName | salary | ccc | Priority |
++-----------+-----------+--------+-----+----------+
+| Bengaluru | Priya     | 100000 |   3 |        1 |
+| Bengaluru | Ankit     |  70000 |   3 |        2 |
+| Bengaluru | Rashmi    |  20000 |   3 |        3 |
+| Gurugram  | Sumedha   |  50000 |   2 |        1 |
+| Gurugram  | Alia      |  50000 |   2 |        2 |
+| Mumbai    | Ajay      |   5000 |   1 |        1 |
+| Noida     | Shivam    |  10000 |   1 |        1 |
++-----------+-----------+--------+-----+----------+

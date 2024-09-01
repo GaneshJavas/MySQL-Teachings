@@ -77,3 +77,6 @@ QUESTIONS
 
 10. Display the records of those students who as joined from more than 1 source.
     >> Select S_FirstName, Count(S_Company) from Students Group By S_FirstName having count(S_Company);
+
+11. Display the count of those students who as joined from a particular company(specified).
+    >> Select count(*) from Students where S_Company = "Oriental";

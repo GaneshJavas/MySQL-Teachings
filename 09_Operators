@@ -1,0 +1,53 @@
+Operators: 
+    AND > All the conditions must be True
+    OR  > Atleast One condition must be True
+    NOT > Other than this condition
+    BETWEEN > Search for the records of those columns that has the column value between the two given values
+
++----------+-------------+----------------+-----------+
+| CourseID | CourseName  | CourseDuration | CourseFee |
++----------+-------------+----------------+-----------+
+|        1 | Python      |              3 |     10000 |
+|        2 | MySQL       |              2 |      7000 |
+|        3 | Java Script |             12 |     17000 |
+|        4 | Java        |              5 |      9000 |
+|        5 | C++         |             10 |     10000 |
++----------+-------------+----------------+-----------+
+5 rows in set (0.00 sec)
+
+Questions 
+
+1. Display those courses that doesn't have Java in it.
+    >> select * from courses where CourseName NOT LIKE("%Java%");
+
++----------+------------+----------------+-----------+
+| CourseID | CourseName | CourseDuration | CourseFee |
++----------+------------+----------------+-----------+
+|        1 | Python     |              3 |     10000 |
+|        2 | MySQL      |              2 |      7000 |
+|        5 | C++        |             10 |     10000 |
++----------+------------+----------------+-----------+
+3 rows in set (0.00 sec)
+
+2. Display the record of those students who has less than 3 years of experience and company is "Oriental" and location is Bhopal.
+    >> select * from Students where years_of_exp < 3 and S_Company = "Oriental" and location = "Bhopal";
+
++-----------+-------------+------------+---------------------+------------+---------------------+-----------------+--------------+-----------+---------------------+----------+
+| StudentID | S_FirstName | S_LastName | S_Email             | S_Phone    | S_EnrollmentDate    | Selected_Course | Years_Of_Exp | S_Company | Batch_Start_Date    | Location |
++-----------+-------------+------------+---------------------+------------+---------------------+-----------------+--------------+-----------+---------------------+----------+
+|         1 | Amit        | Singh      | amitsingh@gmail.com | 9898412653 | 2024-06-02 00:00:00 |               1 |            2 | Oriental  | 2024-06-05 00:00:00 | Bhopal   |
++-----------+-------------+------------+---------------------+------------+---------------------+-----------------+--------------+-----------+---------------------+----------+
+
+3. Display the record of those students who has years of experience between 1 and 3.
+    >> select * from Students where years_of_exp Between 1 and 3;
+
++-----------+-------------+------------+---------------------+------------+---------------------+-----------------+--------------+--------------------+---------------------+-----------------+
+| StudentID | S_FirstName | S_LastName | S_Email             | S_Phone    | S_EnrollmentDate    | Selected_Course | Years_Of_Exp | S_Company          | Batch_Start_Date    | Location        |
++-----------+-------------+------------+---------------------+------------+---------------------+-----------------+--------------+--------------------+---------------------+-----------------+
+|         1 | Amit        | Singh      | amitsingh@gmail.com | 9898412653 | 2024-06-02 00:00:00 |               1 |            2 | Oriental           | 2024-06-05 00:00:00 | Bhopal          |
+|         3 | Gulshan     | Kumar      | gulshankr@gmail.com | 9898214653 | 2024-06-02 00:00:00 |               1 |            3 | Sage International | 2024-06-05 00:00:00 | Bhopal          |
+|         4 | Manoj       | Kumar      | manojkr@gmail.com   | 9898111653 | 2024-06-06 00:00:00 |               4 |            2 | Oriental           | 2024-06-10 00:00:00 | Jaipur          |
+|         5 | Vivek       | Patel      | vpatel@gmail.com    | 9999111653 | 2024-06-06 00:00:00 |               2 |            3 | Oriental           | 2024-06-15 00:00:00 | Somewhere in MP |
+|         6 | Rishi       | Kapoor     | rishik@gmail.com    | 9998111333 | 2024-06-07 00:00:00 |               2 |            2 | Sage International | 2024-06-15 00:00:00 | Kolkata         |
++-----------+-------------+------------+---------------------+------------+---------------------+-----------------+--------------+--------------------+---------------------+-----------------+
+5 rows in set (0.00 sec)
