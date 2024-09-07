@@ -1,6 +1,6 @@
-ROW_NUMBER() >>  
-RANK() >>
-DENSE_RANK() >>
+ROW_NUMBER() >>  Simple Rank will be alloted
+RANK() >> If found duplicates simliar rank will be skipped like 1,2,2,4,5
+DENSE_RANK() >> No skipping 1,2,2,3,4
 
 Employee Table
 +-------+-----------+----------+-----+--------+-----------+
